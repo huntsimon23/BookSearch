@@ -19,8 +19,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://huntsimon23:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7");
+// "mongodb://huntsimon23:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7"
+// "mongodb://localhost/googlebooks"
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

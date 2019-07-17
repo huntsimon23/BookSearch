@@ -9,22 +9,26 @@ import BookResult from "../components/BookResult"
 class Search extends Component {
     state = {
         books: [],
-        query: "",
+        q: "",
+        message: "Search for a book!"
       };
 
     handleInputChange = event => {
-        const { name, value } = event.target;
+      event.preventDefault();  
+      const { name, value } = event.target;
         this.setState({
           [name]: value
         });
       };
     
     getBooks = () => {
-        API.getBooks(this.state.query)
-          .then(res =>
+        API.getBooks(this.state.q)
+          .then(res => {
             this.setState({
-              books: res.data
-            }))
+              books: res.data.items
+            });
+            console.log(res.data.items)}
+            )
           .catch(() =>
             this.setState({
               books: [],
@@ -69,7 +73,7 @@ class Search extends Component {
                 <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
-                query={this.state.query}
+                q={this.state.q}
                 />
             </div>
             </Col>

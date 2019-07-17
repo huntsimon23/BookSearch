@@ -27,7 +27,7 @@ class Search extends Component {
             this.setState({
               books: res.data.items
             });
-            console.log(res.data.items)}
+            console.log(this.state.books)}
             )
           .catch(() =>
             this.setState({
@@ -61,12 +61,7 @@ class Search extends Component {
         <Container>
         <Row>
             <Col size="md-12">
-            <Jumbotron>
-                <h1 className="text-center">
-                <strong>(React) Google Books Search</strong>
-                </h1>
-                <h2 className="text-center">Search for and Save Books of Interest.</h2>
-            </Jumbotron>
+            <Jumbotron />
             </Col>
             <Col size="md-12">
             <div className="card" title="Book Search" icon="far fa-book">

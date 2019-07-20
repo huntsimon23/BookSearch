@@ -24,8 +24,17 @@ class Search extends Component {
     getBooks = () => {
         API.getBooks(this.state.q)
           .then(res => {
+            const searchedBooks = res.data.items.filter(book => {
+             return (book.id &&
+             book.volumeInfo.title &&
+             book.volumeInfo.subtitle &&
+             book.volumeInfo.infoLink &&
+             book.volumeInfo.authors &&
+             book.volumeInfo.description &&
+             book.volumeInfo.imageLinks.thumbnail)
+            });
             this.setState({
-              books: res.data.items
+              books: searchedBooks
             });
             console.log(this.state.books)}
             )
@@ -43,16 +52,17 @@ class Search extends Component {
       };
 
     handleBookSave = id => {
-        const book = this.state.books.find(book => book.id === id);
-    
+       const saveBook = this.state.books.find(book => (book.id === id))
+        console.log(saveBook);
+
         API.saveBook({
-          googleId: book.id,
-          title: book.volumeInfo.title,
-          subtitle: book.volumeInfo.subtitle,
-          link: book.volumeInfo.infoLink,
-          authors: book.volumeInfo.authors,
-          description: book.volumeInfo.description,
-          image: book.volumeInfo.imageLinks.thumbnail
+          googleId: saveBook.id,
+          title: saveBook.volumeInfo.title,
+          subtitle: saveBook.volumeInfo.subtitle,
+          link: saveBook.volumeInfo.infoLink,
+          authors: saveBook.volumeInfo.authors,
+          description: saveBook.volumeInfo.description,
+          image: saveBook.volumeInfo.imageLinks.thumbnail
         }).then(() => this.getBooks());
       };
     

@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 
-const BookResult = ({ title, subtitle, authors, link, description, image, Button }) => {
+const BookResult = ({ id, title, subtitle, authors, link, description, image, Button }) => {
   return (
     <ListItem>
       <Row className="flex-wrap-reverse">
@@ -21,7 +21,7 @@ const BookResult = ({ title, subtitle, authors, link, description, image, Button
       </Row>
       <Row>
         <Col size="md-6">
-          <p className="font-italic small">Written by {authors}</p>
+          <p className="font-italic small">Written by {(authors ? authors : "No author listed")}</p>
         </Col>
       </Row>
       <Row>

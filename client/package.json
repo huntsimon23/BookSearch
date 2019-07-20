@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
-  "homepage": "https://huntsimon23.github.io/BookSearch",
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",

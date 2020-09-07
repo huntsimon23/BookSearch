@@ -5,9 +5,7 @@ export default {
   getBooks: function(q, key) {   
     return axios.get("https://www.googleapis.com/books/v1/volumes", { params: { q:q, key:"AIzaSyBFDz-bVdCuzt6BxmTgVJz8-jIJ9d-2ei4"}});
   },
-  // https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
-  //https://www.googleapis.com/books/v1/volumes?q=Jared&key=AIzaSyBFDz-bVdCuzt6BxmTgVJz8-jIJ9d-2ei4
-  // Gets all saved books
+   // Gets all saved books
   getSavedBooks: function() {
     return axios.get("/api/books");
   },
